@@ -1,9 +1,11 @@
 //importing images
+"use client"
 import favicon from "app/favicon.ico";
 import Image from 'next/image';
 import meetupWaveLogo from '../public/assets/meetup.png';
 //link import
 import Link from 'next/link';
+import AllMeetUps from "./all-meetups/pages";
 
 export default function Home() {
   return (
@@ -15,7 +17,7 @@ export default function Home() {
           <h1 className="font-serif font-semibold italic text-2xl text-sky-50">MeetWave</h1>
         </div>
         <div className="space-x-4 font-serif text-md text-white">
-          <Link href="/all-meetups" className="italic bg-orange-500 hover:bg-orange-700 p-1 rounded-md shadow-lg">
+          <Link href="/all-meetups/page.js" className="italic bg-orange-500 hover:bg-orange-700 p-1 rounded-md shadow-lg">
             Show all Meetups
           </Link>
           <Link href="/add-meetups" className="italic bg-green-600 hover:bg-green-800 p-1 rounded-md shadow-lg">
