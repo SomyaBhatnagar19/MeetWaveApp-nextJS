@@ -39,9 +39,9 @@ import Link from 'next/link';
 
 
 const AllMeetUps = () => {
-  const meet = useSelector((state) => state.meetups.initialMeetups);
-  const meetups = meet ? Object.values(meet) : [];
 
+  const meetups = useSelector((state) => state.meetups.initialMeetups);
+  
   return (
     <div className="container mx-auto p-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -57,9 +57,9 @@ const AllMeetUps = () => {
               <p className="text-gray-600 mb-2">Address: {meetup.address}</p>
               <p className="text-gray-600">Time: {meetup.time}</p>
               <Link href={`/all-meetups/${meetup.id}`}>
-                <a className="block mt-4 p-2 bg-orange-500 border border-orange-500 rounded-lg text-white text-center hover:bg-orange-700 hover:border-orange-700">
+                <div className="block mt-4 p-2 bg-orange-500 border border-orange-500 rounded-lg text-white text-center hover:bg-orange-700 hover:border-orange-700">
                   Show Details
-                </a>
+                </div>
               </Link>
             </div>
           </div>

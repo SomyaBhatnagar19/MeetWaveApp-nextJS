@@ -1,13 +1,20 @@
 //importing images
 "use client"
+import { useState } from "react";
 import favicon from "app/favicon.ico";
 import Image from 'next/image';
 import meetupWaveLogo from '../public/assets/meetup.png';
 //link import
 import Link from 'next/link';
-import AllMeetUps from "./all-meetups/pages";
+import AllMeetUps from '../app/all-meetups/pages';
 
 export default function Home() {
+
+  const [ isVisible, setIsVisible ] = useState(true);
+  const AllMeetupsShowHandler = () => {
+    setIsVisible((prevState) => !prevState);
+  }
+
   return (
     <main>
       {/*----- Header Section -----*/}
@@ -17,14 +24,17 @@ export default function Home() {
           <h1 className="font-serif font-semibold italic text-2xl text-sky-50">MeetWave</h1>
         </div>
         <div className="space-x-4 font-serif text-md text-white">
-          <Link href="/all-meetups/page.js" className="italic bg-orange-500 hover:bg-orange-700 p-1 rounded-md shadow-lg">
+          <div className="italic bg-orange-500 hover:bg-orange-700 p-1 rounded-md shadow-lg" onClick={AllMeetupsShowHandler}>
             Show all Meetups
-          </Link>
+          </div>
           <Link href="/add-meetups" className="italic bg-green-600 hover:bg-green-800 p-1 rounded-md shadow-lg">
             Add new Meetups
           </Link>
         </div>
       </div>
+      {isVisible && <div>
+        <AllMeetUps/>
+      </div>}
     </main>
   );
 }
